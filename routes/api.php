@@ -49,6 +49,7 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 
+Route::middleware('log.request')->group(function () {
 
 Route::get('project_processes', [ProjectProcessController::class, 'index']);
 Route::get('service_products', [ServiceProductController::class, 'index']);
@@ -56,12 +57,14 @@ Route::get('service_products/{id}', [ServiceProductController::class, 'show']);
 Route::get('/cities', [CityController::class, 'getCities']);
 Route::get('/cities/{city_id}/districts', [CityController::class, 'getDistrictsByCity']);
 
+Route::post('/orders', [OrderController::class , 'store']);
+Route::post('/form', FormController::class);
+});
+
 Route::get('/send-mails', [MailController::class, 'sendMailToCustomers']);
 Route::post('/send-to-mail', [MailController::class, 'sendEmail']);
 
 
-Route::post('/orders', [OrderController::class , 'store']);
-Route::post('/form', FormController::class);
 
 /*
  {
