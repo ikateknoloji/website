@@ -57,6 +57,7 @@ Route::get('/cities', [CityController::class, 'getCities']);
 Route::get('/cities/{city_id}/districts', [CityController::class, 'getDistrictsByCity']);
 
 Route::get('/send-mails', [MailController::class, 'sendMailToCustomers']);
+Route::post('/send-to-mail', [MailController::class, 'sendEmail']);
 
 
 Route::post('/orders', [OrderController::class , 'store']);
